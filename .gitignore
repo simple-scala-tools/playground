@@ -4,3 +4,4 @@
 out
 .metals
 *.iml
+.vscode
