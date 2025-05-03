@@ -1,0 +1,32 @@
+package build
+
+import mill._
+import scalalib._
+
+
+object foo extends ScalaModule {
+  override def moduleDeps: Seq[JavaModule] = Seq()
+
+  override def scalaVersion: T[String] = "3.3.4"
+
+  object test extends ScalaTests {
+    override def ivyDeps = Agg(
+      ivy"com.disneystreaming::weaver-cats:0.8.3",
+    )
+    override def testFramework = "weaver.framework.CatsEffect"
+  }
+}
+
+object bar extends ScalaModule {
+  override def moduleDeps: Seq[JavaModule] = Seq(foo)
+
+  override def scalaVersion: T[String] = "3.3.4"
+
+  object test extends ScalaTests {
+    override def ivyDeps = Agg(
+      ivy"com.disneystreaming::weaver-cats:0.8.3",
+    )
+    override def testFramework = "weaver.framework.CatsEffect"
+  }
+}
+
