@@ -1,0 +1,6 @@
+.bsp
+.scala-build
+.bloop
+out
+.metals
+*.iml
